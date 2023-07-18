@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.aurora-bg {
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  background-color: #17191e;
+}
+
+.aurora-bg::before {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  top: 0%;
+  bottom: 0;
+  width: 150%;
+  left: -25%;
+  background:
+    url(../public/noise.webp) repeat,
+    linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+  background-blend-mode: overlay;
+  -webkit-mask-image: radial-gradient(rgba(0, 0, 0, 0.6), transparent 80%);
+  mask-image: radial-gradient(rgba(0, 0, 0, 0.6), transparent 80%);
+  mask-image: radial-gradient(rgba(0, 0, 0, 0.6), transparent 90%);
+  mask-mode: luminance; /* Set mask-mode to luminance */
+}
