@@ -1,13 +1,12 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import React, { useState } from "react";
-import Logo from "@/public/logo.svg";
 import { GrDocumentPdf, GrGithub, GrLinkedinOption } from "react-icons/gr";
 import CustomIcon from "./CustomIcon";
 import CustomLink from "./CustomLink";
 import { usePathname } from "next/navigation";
+import Logo from "./Logo";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
@@ -45,30 +44,24 @@ const Navbar = () => {
       href: "/contact",
     },
   ];
+
   const genericHamburgerLine = `h-1 w-6 my-0.5 rounded-full bg-primary transition ease transform duration-300`;
   return (
-    <header className="flex w-full items-center justify-between px-10 py-8">
-      <div className="flex items-center gap-4">
-        <div className="inline-block rounded-full border border-primary p-2">
-          <Link href="/">
-            <Image
-              src={Logo}
-              alt="Logo"
-              width={30}
-              height={30}
-              className="invert"
-            />
-          </Link>
-        </div>
+    <header
+      className={`relative flex w-full items-center justify-between px-10 py-8`}
+    >
+      <div className="flex items-center gap-10">
+        <Logo />
         <nav className="hidden gap-6 text-lg font-medium text-primary md:flex">
           {navLinks.map((item, index) => {
-            const isActive = pathname.startsWith(item.href);
+            const isActive = pathname === item.href;
             return (
               <CustomLink
                 key={index}
                 name={item.name}
                 href={item.href}
                 isActive={isActive}
+                setOpen={setOpen}
               />
             );
           })}
@@ -103,6 +96,32 @@ const Navbar = () => {
           }`}
         />
       </button>
+      {/* Dropdown Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -100 }}
+            className="absolute left-0 right-0 top-full z-10 rounded-md bg-[#17191e] py-10 shadow-lg md:hidden"
+          >
+            <nav className="flex flex-col items-center gap-4 text-lg font-medium text-primary">
+              {navLinks.map((item, index) => {
+                const isActive = pathname === item.href;
+                return (
+                  <CustomLink
+                    key={index}
+                    name={item.name}
+                    href={item.href}
+                    isActive={isActive}
+                    setOpen={setOpen}
+                  />
+                );
+              })}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
