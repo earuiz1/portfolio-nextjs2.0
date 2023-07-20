@@ -8,7 +8,17 @@ import { motion } from "framer-motion";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.1 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.2 } },
+};
+
+const paragraphVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
+
+const divVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
 };
 
 const HomeContent = () => {
@@ -21,8 +31,12 @@ const HomeContent = () => {
     >
       <motion.div
         className="w-[70%] md:w-[60%] lg:min-w-[50%] xl:min-w-[40%]"
+        variants={divVariants}
+        initial="hidden"
+        animate="visible"
         whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+        whileTap={{ scale: 1 }}
+        transition={{ duration: 1, delay: 0.4 }}
       >
         <Image
           src={programmerSvg}
@@ -32,21 +46,23 @@ const HomeContent = () => {
         />
       </motion.div>
 
-      <motion.div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4">
         <motion.p
           className="text-center text-2xl font-bold text-primary md:text-3xl lg:text-left lg:text-4xl xl:text-5xl"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          variants={paragraphVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 1, delay: 0.6 }}
         >
           Your online success story starts with a passionate web developer
           dedicated to your vision.
         </motion.p>
         <motion.p
           className="text-light text-center text-xs text-primary/90 md:text-sm lg:text-left"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          variants={paragraphVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 1, delay: 0.8 }}
         >
           Committed to delivering quality results and constantly challenging
           myself to take on new projects and broaden my skillset. Explore my
@@ -54,9 +70,10 @@ const HomeContent = () => {
         </motion.p>
         <motion.div
           className="flex justify-center gap-3 lg:justify-start"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          variants={divVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 1, delay: 1 }}
         >
           <a
             href="https://drive.google.com/file/d/1B2CbK3lByJfjf3jeD14Av3XPxVROWja7/view?usp=sharing"
@@ -72,7 +89,7 @@ const HomeContent = () => {
             </button>
           </Link>
         </motion.div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 };
