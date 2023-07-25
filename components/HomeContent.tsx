@@ -34,8 +34,6 @@ const HomeContent = () => {
         variants={divVariants}
         initial="hidden"
         animate="visible"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 1 }}
         transition={{ duration: 1, delay: 0.4 }}
       >
         <Image

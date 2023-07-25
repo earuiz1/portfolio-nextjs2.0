@@ -1,13 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import SectionTitle from "./SectionTitle";
 import Hacker from "@/public/Hacker.svg";
 import { motion } from "framer-motion";
 import { skillIcons } from "@/utils/Skills";
 
 const containerVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 1.6, delay: 0.2 } },
+  hidden: { opacity: 0, y:-50},
+  visible: { opacity: 1, y:0 , transition: { duration: 1.4, delay: 0.2 } },
 };
 
 const paragraphVariants = {
@@ -24,34 +25,15 @@ const AboutContent = () => {
   const [isShown, setShown] = useState(false);
   return (
     <motion.div variants={containerVariants} initial="hidden" animate="visible">
-      <motion.p
-        className="text-center text-3xl font-semibold tracking-widest text-primary lg:text-left"
-        variants={paragraphVariants}
-        initial="hidden"
-        animate="visible"
-        transition={{ duration: 1.6, delay: 0.4 }}
-      >
-        Who I am
-      </motion.p>
-      <motion.div
-        className="my-6 flex flex-row items-center gap-3"
-        variants={divVariants}
-        initial="hidden"
-        animate="visible"
-        transition={{ duration: 1.6, delay: 0.6 }}
-      >
-        <div className="h-2 w-2 rounded-full bg-primary"></div>
-        <div className="h-2 w-2 rounded-full bg-primary"></div>
-        <div className="h-1 w-full bg-primary lg:w-1/2"></div>
-      </motion.div>
+      <SectionTitle title="Who I Am"/>
       <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-start lg:justify-between">
         <div className="flex flex-col gap-3">
           <motion.p
-            className="text-center text-xs text-primary md:text-sm lg:text-left"
+            className="text-center text-xs text-primary/90 md:text-sm lg:text-left"
             variants={paragraphVariants}
             initial="hidden"
             animate="visible"
-            transition={{ duration: 1.6, delay: 0.8 }}
+            transition={{ duration: 1.4, delay: 0.6 }}
           >
             I am a Computer Science Grad with a Masters in Information
             Technology from The University of Texas Rio Grande Valley and I have
@@ -59,11 +41,11 @@ const AboutContent = () => {
             Assistant at UTRGV.
           </motion.p>
           <motion.p
-            className="text-center text-xs text-primary md:text-sm lg:text-left"
+            className="text-center text-xs text-primary/90 md:text-sm lg:text-left"
             variants={paragraphVariants}
             initial="hidden"
             animate="visible"
-            transition={{ duration: 1.6, delay: 1 }}
+            transition={{ duration: 1.4, delay: 0.8 }}
           >
             My educational background and professional experience have given me
             a strong foundation in web development and digital marketing, as
@@ -77,11 +59,11 @@ const AboutContent = () => {
             and opportunities that lie ahead.
           </motion.p>
           <motion.p
-            className="text-center text-xs text-primary md:text-sm lg:text-left"
+            className="text-center text-xs text-primary/90 md:text-sm lg:text-left"
             variants={paragraphVariants}
             initial="hidden"
             animate="visible"
-            transition={{ duration: 1.6, delay: 1.2 }}
+            transition={{ duration: 1.4, delay: 1 }}
           >
             Some of my hobbies are: playing video games, reading stuff about the
             universe, watching/playing soccer, playing with my dogs and
@@ -92,13 +74,13 @@ const AboutContent = () => {
             variants={divVariants}
             initial="hidden"
             animate="visible"
-            transition={{ duration: 1.6, delay: 1.4 }}
+            transition={{ duration: 1.4, delay: 1.2 }}
           >
             <p
               className="cursor-pointer text-center font-semibold text-primary underline underline-offset-4 lg:text-left"
               onClick={() => setShown(true)}
             >
-              Here are a few technologies I have been working with recently:
+              Check out some of the technologies I have been working with recently >
             </p>
 
             {isShown && (
@@ -125,9 +107,8 @@ const AboutContent = () => {
           className="w-[90%] md:w-[50%] lg:min-w-[40%] xl:min-w-[30%]"
           variants={divVariants}
           initial="hidden"
-          whileHover={{ scale: 1.2, transition: { delay: 0 } }}
           animate="visible"
-          transition={{ duration: 1.6, delay: 1.6 }}
+          transition={{ duration: 1.4, delay: 1.4 }}
         >
           <Image src={Hacker} alt="Hacker" className="h-auto w-full" />
         </motion.div>
