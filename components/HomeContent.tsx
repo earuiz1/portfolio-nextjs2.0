@@ -46,7 +46,7 @@ const HomeContent = () => {
 
       <div className="flex flex-col gap-4">
         <motion.p
-          className="text-center text-2xl font-bold text-primary md:text-3xl lg:text-left lg:text-4xl xl:text-5xl"
+          className="text-center text-3xl font-bold text-primary md:text-4xl lg:text-left lg:text-5xl"
           variants={paragraphVariants}
           initial="hidden"
           animate="visible"
@@ -56,7 +56,7 @@ const HomeContent = () => {
           dedicated to your vision.
         </motion.p>
         <motion.p
-          className="text-light text-center text-xs text-primary/90 md:text-sm lg:text-left"
+          className="text-light text-center text-xs text-primary/90 md:text-sm lg:text-left lg:text-base"
           variants={paragraphVariants}
           initial="hidden"
           animate="visible"

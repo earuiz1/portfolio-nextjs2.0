@@ -44,7 +44,7 @@ const AboutContent = () => {
       <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-start lg:justify-between">
         <div className="flex flex-col gap-3">
           <motion.p
-            className="text-center text-xs text-primary/90 md:text-sm lg:text-left"
+            className="text-center text-xs xl:text-base text-primary/90 md:text-sm lg:text-left"
             variants={paragraphVariants}
             initial="initial"
             animate="animate"
@@ -56,7 +56,7 @@ const AboutContent = () => {
             Assistant at UTRGV.
           </motion.p>
           <motion.p
-            className="text-center text-xs text-primary/90 md:text-sm lg:text-left"
+            className="text-center text-xs xl:text-base text-primary/90 md:text-sm lg:text-left"
             variants={paragraphVariants}
             initial="initial"
             animate="animate"
@@ -74,7 +74,7 @@ const AboutContent = () => {
             and opportunities that lie ahead.
           </motion.p>
           <motion.p
-            className="text-center text-xs text-primary/90 md:text-sm lg:text-left"
+            className="text-center text-xs xl:text-base text-primary/90 md:text-sm lg:text-left"
             variants={paragraphVariants}
             initial="initial"
             animate="animate"
@@ -84,15 +84,26 @@ const AboutContent = () => {
             universe, watching/playing soccer, playing with my dogs and
             listening to music.
           </motion.p>
-          <motion.div
-            className="mt-8 flex flex-col gap-8"
+        </div>
+        <motion.div
+          className="w-[60%] md:w-[50%] xl:text-base lg:min-w-[40%] xl:min-w-[30%]"
+          variants={imageVariant}
+          initial="initial"
+          animate="animate"
+          whileHover ="hover"
+        >
+          <Image src={Hacker} alt="Hacker" className="h-auto w-full" />
+        </motion.div>
+      </div>
+      <motion.div
+            className="mt-8 xl:mt-4 flex flex-col gap-8"
             variants={divVariants}
             initial="initial"
             animate="animate"
             transition={{ duration: 1.4, delay: 1.2 }}
           >
             <p
-              className="cursor-pointer text-center font-semibold text-primary underline underline-offset-4 lg:text-left"
+              className="cursor-pointer text-center text-base xl:text-lg font-semibold text-primary underline underline-offset-4 lg:text-left"
               onClick={() => setShown(true)}
             >
               Check out some of the technologies I have been working with recently >
@@ -118,17 +129,6 @@ const AboutContent = () => {
               </motion.ul>
             )}
           </motion.div>
-        </div>
-        <motion.div
-          className="w-[90%] md:w-[50%] lg:min-w-[40%] xl:min-w-[30%]"
-          variants={imageVariant}
-          initial="initial"
-          animate="animate"
-          whileHover ="hover"
-        >
-          <Image src={Hacker} alt="Hacker" className="h-auto w-full" />
-        </motion.div>
-      </div>
     </motion.div>
   );
 };

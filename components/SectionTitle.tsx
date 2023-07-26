@@ -20,7 +20,7 @@ const SectionTitle = ({ title }: SectionTitleProps) => {
       animate="visible"
       transition={{ duration: 1.4, delay: 0.4 }}
     >
-      <h2 className="text-center xl:text-4xl md:text-3xl text-2xl font-semibold tracking-widest text-primary lg:text-left">
+      <h2 className="text-center text-3xl font-bold tracking-widest text-primary md:text-4xl lg:text-left xl:text-5xl">
         {title}
       </h2>
       <div className="flex flex-row items-center gap-3">

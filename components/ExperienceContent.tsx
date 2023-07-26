@@ -75,7 +75,7 @@ const ExperienceContent = () => {
           transition={{ duration: 1, delay: 0.6 }}
         >
           <div className="flex flex-row items-center gap-2">
-            <p className="items-center text-center text-lg font-medium text-primary lg:text-left lg:text-xl">
+            <p className="text-center text-lg font-medium text-primary lg:text-left lg:text-xl xl:text-2xl w-full">
               Web Developer Graduate Assistant (University of Texas Rio Grande
               Valley)
             </p>
@@ -87,7 +87,7 @@ const ExperienceContent = () => {
               className="hidden lg:inline"
             />
           </div>
-          <p className="text-center text-xs font-medium italic text-primary md:text-sm lg:text-left">
+          <p className="text-center text-xs font-medium italic text-primary md:text-sm lg:text-left xl:text-base">
             Mar 2019 - May 2021
           </p>
           <Image
@@ -99,7 +99,7 @@ const ExperienceContent = () => {
           />
         </motion.div>
         <motion.ul
-          className="flex flex-col gap-4 text-center text-xs font-light text-primary/90 md:text-sm lg:text-left"
+          className="flex flex-col gap-4 text-center text-xs font-light text-primary/90 md:text-sm lg:text-left xl:text-base"
           variants={ulVariants}
           initial="initial"
           animate="animate"
