@@ -107,7 +107,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -100 }}
-            className="absolute left-0 right-0 top-full z-10 rounded-md bg-[#17191e] py-10 shadow-lg md:hidden"
+            className="absolute left-0 right-0 top-full z-10 rounded-md border-t-4 border-slate-600 bg-[#17191e] py-10 shadow-lg md:hidden"
           >
             <nav className="flex flex-col items-center gap-4 text-lg font-medium text-primary">
               {navLinks.map((item, index) => {

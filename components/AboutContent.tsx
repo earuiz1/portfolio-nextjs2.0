@@ -7,32 +7,47 @@ import { motion } from "framer-motion";
 import { skillIcons } from "@/utils/Skills";
 
 const containerVariants = {
-  hidden: { opacity: 0, y:-50},
-  visible: { opacity: 1, y:0 , transition: { duration: 1.4, delay: 0.2 } },
+  initial: { opacity: 0, y:-50},
+  animate: { opacity: 1, y:0 , transition: { duration: 1.4, delay: 0.2 } },
 };
 
 const paragraphVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
 };
 
 const divVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
 };
+
+const imageVariant = {
+  initial: {opacity: 0}, 
+  animate: {
+    opacity:1 , transition : {
+      delay: 1.4, duration: 1.4
+    }
+  }, 
+  hover: { scale: 1.1, transition: { type: "tween", duration: 0.2}}
+}
+
+const liVariant = {
+  initial: { opacity: 0, y:50},
+  hover: { scale: 1.2, transition: { type: "tween", duration: 0.2}}
+}
 
 const AboutContent = () => {
   const [isShown, setShown] = useState(false);
   return (
-    <motion.div variants={containerVariants} initial="hidden" animate="visible">
+    <motion.div variants={containerVariants} initial="initial" animate="animate">
       <SectionTitle title="Who I Am"/>
       <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-start lg:justify-between">
         <div className="flex flex-col gap-3">
           <motion.p
             className="text-center text-xs text-primary/90 md:text-sm lg:text-left"
             variants={paragraphVariants}
-            initial="hidden"
-            animate="visible"
+            initial="initial"
+            animate="animate"
             transition={{ duration: 1.4, delay: 0.6 }}
           >
             I am a Computer Science Grad with a Masters in Information
@@ -43,8 +58,8 @@ const AboutContent = () => {
           <motion.p
             className="text-center text-xs text-primary/90 md:text-sm lg:text-left"
             variants={paragraphVariants}
-            initial="hidden"
-            animate="visible"
+            initial="initial"
+            animate="animate"
             transition={{ duration: 1.4, delay: 0.8 }}
           >
             My educational background and professional experience have given me
@@ -61,8 +76,8 @@ const AboutContent = () => {
           <motion.p
             className="text-center text-xs text-primary/90 md:text-sm lg:text-left"
             variants={paragraphVariants}
-            initial="hidden"
-            animate="visible"
+            initial="initial"
+            animate="animate"
             transition={{ duration: 1.4, delay: 1 }}
           >
             Some of my hobbies are: playing video games, reading stuff about the
@@ -72,8 +87,8 @@ const AboutContent = () => {
           <motion.div
             className="mt-8 flex flex-col gap-8"
             variants={divVariants}
-            initial="hidden"
-            animate="visible"
+            initial="initial"
+            animate="animate"
             transition={{ duration: 1.4, delay: 1.2 }}
           >
             <p
@@ -89,13 +104,14 @@ const AboutContent = () => {
                   return (
                     <motion.li
                       key={index}
-                      className="cursor-pointer text-primary"
-                      initial={{ opacity: 0, y: 50 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.04 }}
-                      whileHover={{ scale: 1.5 }}
+                      className="cursor-pointer text-primary bg-slate-950/60 px-3 py-2 rounded-md flex flex-row items-center gap-2"
+                      variants={liVariant}
+                      initial="initial"
+                      animate={{ opacity: 1, y: 0, transition: {delay: index * 0.06 } }}
+                      whileHover="hover"
                     >
                       {item.icon}
+                      <span className="font-medium text-xs text-primary/80">{item.name}</span>
                     </motion.li>
                   );
                 })}
@@ -105,10 +121,10 @@ const AboutContent = () => {
         </div>
         <motion.div
           className="w-[90%] md:w-[50%] lg:min-w-[40%] xl:min-w-[30%]"
-          variants={divVariants}
-          initial="hidden"
-          animate="visible"
-          transition={{ duration: 1.4, delay: 1.4 }}
+          variants={imageVariant}
+          initial="initial"
+          animate="animate"
+          whileHover ="hover"
         >
           <Image src={Hacker} alt="Hacker" className="h-auto w-full" />
         </motion.div>

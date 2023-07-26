@@ -1,7 +1,29 @@
+"use client";
 import React from "react";
 import utrgvLogo from "@/public/utrgv-horse-logo.svg";
 import Image from "next/image";
 import SectionTitle from "./SectionTitle";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0, y: -50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1.2, delay: 0.2 } },
+};
+
+const divVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+};
+
+const ulVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { delay: 0.8, staggerChildren: 0.4 } },
+};
+
+const liVariant = {
+  initial: { opacity: 0, y: -50 },
+  animate: { opacity: 1, y: 0, transition: { duration: 1.2 } },
+};
 
 const ExperienceContent = () => {
   const jobDuties = [
@@ -42,10 +64,16 @@ const ExperienceContent = () => {
     },
   ];
   return (
-    <>
+    <motion.div variants={containerVariants} initial="hidden" animate="visible">
       <SectionTitle title="Professional Journey" />
       <div className="flex w-full flex-col gap-4 rounded-lg border-l-4 border-[#F05023] bg-slate-950/40 p-8 ">
-        <div className="flex flex-col gap-3">
+        <motion.div
+          className="flex flex-col gap-3"
+          initial="initial"
+          animate="animate"
+          variants={divVariants}
+          transition={{ duration: 1, delay: 0.6 }}
+        >
           <div className="flex flex-row items-center gap-2">
             <p className="items-center text-center text-lg font-medium text-primary lg:text-left lg:text-xl">
               Web Developer Graduate Assistant (University of Texas Rio Grande
@@ -69,14 +97,23 @@ const ExperienceContent = () => {
             height={100}
             className="mx-auto lg:hidden"
           />
-        </div>
-        <ul className="flex flex-col gap-4 text-center text-xs font-light text-primary/90 md:text-sm lg:text-left">
+        </motion.div>
+        <motion.ul
+          className="flex flex-col gap-4 text-center text-xs font-light text-primary/90 md:text-sm lg:text-left"
+          variants={ulVariants}
+          initial="initial"
+          animate="animate"
+        >
           {jobDuties.map((item, index) => {
-            return <li key={index}>{item.text}</li>;
+            return (
+              <motion.li key={index} variants={liVariant}>
+                {item.text}
+              </motion.li>
+            );
           })}
-        </ul>
+        </motion.ul>
       </div>
-    </>
+    </motion.div>
   );
 };
 
