@@ -60,6 +60,8 @@ const ContactContent = () => {
       // Handle error if the API request fails
     }
   };
+
+  // TODO: Add animation to the form
   return (
     <>
       <SectionTitle title="Let's Connect" />
