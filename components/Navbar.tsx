@@ -1,17 +1,49 @@
 "use client";
 
 import React, { useState } from "react";
-import { GrDocumentPdf, GrGithub, GrLinkedinOption } from "react-icons/gr";
+import DropdownMenu from "./DropdownMenu";
+import {
+  GrDocumentPdf,
+  GrGithub,
+  GrLinkedinOption,
+  GrMailOption,
+} from "react-icons/gr";
 import CustomIcon from "./CustomIcon";
 import CustomLink from "./CustomLink";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
-import { motion, AnimatePresence } from "framer-motion";
+
+export const navLinks = [
+  {
+    name: "Home",
+    href: "/",
+  },
+  {
+    name: "About",
+    href: "/about",
+  },
+  {
+    name: "Experience",
+    href: "/experience",
+  },
+  {
+    name: "Projects",
+    href: "/projects",
+  },
+  // {
+  //   name: "Contact",
+  //   href: "/contact",
+  // },
+];
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
   const pathname = usePathname();
   const reactIcons = [
+    {
+      name: <GrMailOption size={25} />,
+      href: "",
+    },
     {
       name: <GrDocumentPdf size={25} />,
       href: "",
@@ -23,29 +55,6 @@ const Navbar = () => {
     {
       name: <GrLinkedinOption size={25} />,
       href: "",
-    },
-  ];
-
-  const navLinks = [
-    {
-      name: "Home",
-      href: "/",
-    },
-    {
-      name: "About",
-      href: "/about",
-    },
-    {
-      name: "Experience",
-      href: "/experience",
-    },
-    {
-      name: "Projects",
-      href: "/projects",
-    },
-    {
-      name: "Contact",
-      href: "/contact",
     },
   ];
 
@@ -100,32 +109,7 @@ const Navbar = () => {
           }`}
         />
       </button>
-      {/* Dropdown Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -100 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -100 }}
-            className="absolute left-0 right-0 top-full z-10 rounded-md border-t-4 border-slate-600 bg-[#17191e] py-10 shadow-lg md:hidden"
-          >
-            <nav className="flex flex-col items-center gap-4 text-lg font-medium text-primary">
-              {navLinks.map((item, index) => {
-                const isActive = pathname === item.href;
-                return (
-                  <CustomLink
-                    key={index}
-                    name={item.name}
-                    href={item.href}
-                    isActive={isActive}
-                    setOpen={setOpen}
-                  />
-                );
-              })}
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {isOpen && <DropdownMenu setOpen={setOpen} pathname={pathname} />}
     </header>
   );
 };

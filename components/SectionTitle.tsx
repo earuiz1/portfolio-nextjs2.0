@@ -14,20 +14,20 @@ const divVariants = {
 const SectionTitle = ({ title }: SectionTitleProps) => {
   return (
     <motion.div
-      className="mb-10 flex w-full flex-col gap-4"
+      className="mb-10 flex w-full flex-row items-center gap-3"
       variants={divVariants}
       initial="hidden"
       animate="visible"
       transition={{ duration: 1.4, delay: 0.4 }}
     >
-      <h2 className="text-center text-3xl font-bold tracking-widest text-primary md:text-4xl lg:text-left xl:text-5xl">
+      <h2 className="text-center text-3xl font-bold text-primary md:text-4xl lg:text-left xl:text-5xl uppercase">
         {title}
       </h2>
-      <div className="flex flex-row items-center gap-3">
-        <div className="h-2 w-2 rounded-full bg-primary"></div>
-        <div className="h-2 w-2 rounded-full bg-primary"></div>
-        <div className="h-1 w-full bg-primary lg:w-1/2"></div>
-      </div>
+       <div className="flex flex-row gap-3 items-center grow">
+         <div className="h-2 w-2 rounded-full bg-primary"></div>
+         <div className="h-2 w-2 rounded-full bg-primary"></div>
+         <div className="h-0.5 grow bg-primary"></div>
+       </div>
     </motion.div>
   );
 };
