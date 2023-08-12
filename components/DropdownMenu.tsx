@@ -1,7 +1,7 @@
 import React from "react";
 import CustomLink from "./CustomLink";
 import { motion, AnimatePresence } from "framer-motion";
-import { navLinks } from "./Navbar";
+import { navLinks } from "@/utils/navUtils";
 
 type DropdownMenuProps = {
   pathname: string | null;

@@ -4,7 +4,7 @@ import Image from "next/image";
 import SectionTitle from "./SectionTitle";
 import Hacker from "@/public/Hacker.svg";
 import { motion } from "framer-motion";
-import { skillIcons } from "@/utils/Skills";
+import { skillIcons } from "@/utils/skillsUtils";
 
 const containerVariants = {
   initial: { opacity: 0, y:-50},

@@ -1,6 +1,6 @@
 import React from "react";
 import SectionTitle from "./SectionTitle";
-import { projects } from "@/utils/Projects";
+import { projects } from "@/utils/projectsUtils";
 import { BsFillPlayFill } from "react-icons/bs";
 import { SiGithub } from "react-icons/si";
 
